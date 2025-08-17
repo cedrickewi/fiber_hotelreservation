@@ -1,8 +1,20 @@
+include .env
+
+docker-up:
+	@echo "Starting container"
+	@docker-compose -p ${BINARY} up --build -d --remove-orphans
+
+docker-down:
+	@echo "stopping container"
+	@docker-compose down 
+
 build:
-	@go build -o bin/api 
+	@go build  -o ${BINARY} ./cmd/api/
 
 run: build
-	@./bin/api 
+	@./${BINARY}
+
+restart: build run 
 
 test:
 	@go test -v ./...
