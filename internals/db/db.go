@@ -13,7 +13,7 @@ import (
 var collection *mongo.Collection
 
 func ConnectToMongo() (*mongo.Client, error) {
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27027")
+	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
 
 	username := os.Getenv("MONGO_DB_USERNAME")
 	password := os.Getenv("MONGO_DB_PASSWORD")

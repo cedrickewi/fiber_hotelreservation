@@ -18,3 +18,5 @@ restart: build run
 
 test:
 	@go test -v ./...
+
+# connection string
